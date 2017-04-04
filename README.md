@@ -1,5 +1,5 @@
 <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60">
-#GeoQuakes Training
+# GeoQuakes Training
 
 ## Introduction
 
@@ -61,7 +61,7 @@ Write out the AJAX call that will grab the data and `console.log` the list of ea
 </div>
 ```
 
-> **Pro-tip**: When in doubt, work in your Chrome Javascript Console! You can manipulate JSON, test your ideas, and even render elements to the page without ever touching your `app.js` file!
+> **Pro-tip**: When in doubt, work in your Chrome Javascript Console! You can manipulate JSON, test your ideas, and even render elements to the page and then use the strategies that work in your `app.js` file!
 
 **Switch to Template Strings**: We encourage you to use template strings. At a certain point it's easier to work with a *template* than to build HTML strings by hand.
 
@@ -75,10 +75,10 @@ Write out the AJAX call that will grab the data and `console.log` the list of ea
 #### Part 4. Add pins to your map
 Once you've got the map to show up, your next goal is to drop a single pin on San Francisco. This is a sanity check.  
 - Next, can you add only the first earthquake to the map?
-- Can you add pins for *all* the earthquakes to the map?
+- Once you have one earthquake pin, add pins for *all* the earthquakes to the map?
 
 #### Bonus:
 Extend your template:  
-- Calculate how long ago the quake occurred and add it to the page. E.g. "28 hours ago". Currently, the time that the API returns is in Unix time (seconds since 1/1/1970). That's a nice format for computers, but not a nice format for humans.
+- Calculate how long ago the quake occurred, and add that information to the page in a readable format like "28 hours ago". Currently, the time that the API returns is in Unix time (seconds since 1/1/1970). That's a nice format for computers, but not a nice format for humans.  Hint: Write a helper method to convert the times. 
 - Parse the title to only include the location, E.g. Instead of "M 4.2 - 1km ESE of Fontana, California", it should just say "Fontana, California."
 - Create a visual indicator of the magnitude of a quake. For instance, maybe a 4.0 is indicated by a "yellow" dot, a 5.0 by an "orange" dot, and anything larger is "red".
