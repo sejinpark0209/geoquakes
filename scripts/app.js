@@ -10,7 +10,7 @@ $(document).on("ready", function() {
   });   // ajax
 });  // doc on ready
   function onSuccess(responseData) {
-    console.log(responseData);
+    // console.log(responseData);
 
     var output = responseData.features;
     output.forEach(function(item, index) {
@@ -19,6 +19,17 @@ $(document).on("ready", function() {
     })
     // [0].properties.title;
     // for each (var in output) {
-   
   
 }; 
+
+
+var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.78, lng: -122.44},
+          zoom: 8
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initMap);
+
+
