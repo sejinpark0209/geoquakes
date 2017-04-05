@@ -1,5 +1,5 @@
 // define globals
-var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
+var weekly_quakes_endpoint = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
 var $quakesList;
 var map;
 var template;
@@ -7,10 +7,6 @@ var template;
 $(document).on("ready", function() {
 
   $quakesList = $('#info');
-
-  // compile handlebars template
-  var source = $('#quakes-template').html();
-  template = Handlebars.compile(source);
 
   createMap();
   fetchQuakeData();
@@ -33,19 +29,25 @@ function fetchQuakeData() {
   });
 }
 
+function templateQuake(earthquake){
+  return `<hr> \n<p>${earthquake.properties.title}</p>`
+}
+
 function onSuccess(json) {
   var earthquakes = json.features;
-
-  // pass in data to render in the template
-  var quakesHtml = template({ quakes: earthquakes });
-
-  // append html to the view
-  $quakesList.append(quakesHtml);
-
-  // iterate through earthquakes to create map markers
+  var quakeHtml;
+  var lat, lng;
+  // iterate through earthquakes
   earthquakes.forEach(function (quake) {
-    var lat = quake.geometry.coordinates[1];
-    var lng = quake.geometry.coordinates[0];
+    // pass in data to render in the template
+    quakeHtml = templateQuake(quake);
+
+    // append html to the view
+    $quakesList.append(quakeHtml);
+
+    // create map markers
+    lat = quake.geometry.coordinates[1];
+    lng = quake.geometry.coordinates[0];
     new google.maps.Marker({
       position: new google.maps.LatLng(lat, lng),
       map: map,
