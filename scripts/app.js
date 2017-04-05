@@ -23,13 +23,20 @@ $(document).on("ready", function() {
 }; 
 
 
-var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.78, lng: -122.44},
-          zoom: 8
+// var map;
+function initMap() {
+	var myLatLng = {lat: 37.78, lng: -122.44};
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  center: myLatLng,
+	  zoom: 8
+	});
+	var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'San Fran!'
         });
-      }
-      google.maps.event.addDomListener(window, 'load', initMap);
+}
+google.maps.event.addDomListener(window, 'load', initMap);
+
 
 
