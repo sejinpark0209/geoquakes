@@ -16,16 +16,20 @@ $(document).on("ready", function() {
     output.forEach(function(item, index) {
     	var newOutput = output[index].properties.title;
     	$("#info").append('<p>' + newOutput + '</p>');
+    	var findLatLng = output[index].geometry.coordinates;
+    	console.log(findLatLng);
     })
     // [0].properties.title;
     // for each (var in output) {
-  
 }; 
 
 
-// var map;
+
+
+function makeMap (findLatLng) {
+	var myLatLng = findLatLng;
+
 function initMap() {
-	var myLatLng = {lat: 37.78, lng: -122.44};
 	var map = new google.maps.Map(document.getElementById('map'), {
 	  center: myLatLng,
 	  zoom: 8
@@ -37,6 +41,8 @@ function initMap() {
         });
 }
 google.maps.event.addDomListener(window, 'load', initMap);
+}
 
-
+var sfLatLng = {lat: 37.78, lng: -122.44};
+makeMap(sfLatLng);
 
