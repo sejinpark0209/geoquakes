@@ -10,7 +10,6 @@ $(document).on("ready", function() {
   });   // ajax
 });  // doc on ready
   function onSuccess(responseData) {
-    // console.log(responseData);
 
     var output = responseData.features;
     output.forEach(function(item, index) {
@@ -23,26 +22,18 @@ $(document).on("ready", function() {
     // for each (var in output) {
 }; 
 
-
-
-
-function makeMap (findLatLng) {
-	var myLatLng = findLatLng;
-
+var sfLatLng = {lat: 37.78, lng: -122.44};
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
-	  center: myLatLng,
+	  center: sfLatLng,
 	  zoom: 8
-	});
-	var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'San Fran!'
-        });
-}
+	});  // google.maps
+
+ 	var marker = new google.maps.Marker({
+      position: sfLatLng,
+      map: map,
+      title: 'Hello World!'
+	});   // marker
+}    // initMap
 google.maps.event.addDomListener(window, 'load', initMap);
-}
-
-var sfLatLng = {lat: 37.78, lng: -122.44};
-makeMap(sfLatLng);
-
+// }
