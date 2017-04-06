@@ -33,18 +33,18 @@ $(document).on("ready", function() {
         //   obj["lng"] = arr[i][1];
         // }
         console.log(obj);
+
+
+
+
+
+
+
+
+        
       }
       toObject(listCord);
-
-      // var listCordRev = [];
-      // for(var i = 0; i < listCord.length; i++) {
-      //   listCord = listCord[i].shift();
-
-
-
     })
-    // [0].properties.title;
-    // for each (var in output) {
 }; 
 
 // var listCord = [];
@@ -70,6 +70,11 @@ function initMap() {
 	  zoom: 8
 	});  // google.maps
 
+  var marker = new google.maps.Marker({
+    position: sfLatLng,
+    map: map,
+    title: 'Hello World!'
+  });  
 
 // var convPinList = [];
 
